@@ -59,8 +59,10 @@ ___
 
 - `public` - Nível de acesso público, podendo ser acessada de qualquer lugar
 - `private` - Nível de acesso privado, onde só pode ser acessada dentro da mesma classe
+- `private protected` - Nível de acesso privado protegido, é acessível dentro de tipos derivados da classe recipiente, mas somente em seu assemblie recipiente.
 - `protected` - Nível de acesso protegido, semelhante ao private, porém pode ser acessada de classes que herdem de seu *pai*
-
+- `internal` - Nível de acesso interno, acessível somente em arquivos no mesmo assemblie.
+- `protected internal` - Nível de acesso interno protegido, igual ao internal, com a diferença sendo que é acessível de outro assemblie a partir de tipos que derivem de seu tipo base.
 ___
 
 ## Funções
@@ -108,8 +110,25 @@ Para alcançar isso, é possível:
 * Declarar campos e variáveis como `private`
 * Prover métodos `get` e `set` publicos, através de propriedades, para acessar e atualizar o valor de um campo privado.
 
+### Membros
+Os membros de um tipo(uma classe, um struct ou um registro) incluem todos os métodos, campos, constantes e propriedades.
+No C#, não existem variáveis globais ou métodos como em outras linguagens, como o python.
+
+A lista a seguir inclui todos os vários tipos de membros que podem ser declarados em uma classe, uma struct ou em um registro:   
+
+- Campos
+- Constantes
+- Propriedades
+- Métodos
+- Construtores
+- Eventos
+- Finalizadores
+- Indexadores
+- Operadores
+- Tipos aninhados
+
 #### Propriedades
-Propriedades são membros de uma classe que provém um mecanismo flexível para as classes para expor campos privados.
+Propriedades são um dos membros de uma classe que provém um mecanismo flexível para as classes para expor campos privados.
 
 Uma propriedade possui dois acessores: um acessor get(que permite acessar um campo privado), e um acessor set(que permide atualizar o valor de um campo privado).
 
@@ -132,7 +151,7 @@ class Person
 }
 ```
 
-### Campos/Atributos
+#### Campos/Atributos
 Campos são variáveis internas da classe, que armazenam valores referentes a ela, que acompanham sua criação e possivelmente definem seu comportamento, e.g.:
 ```cs
 class Person
@@ -142,7 +161,7 @@ class Person
 }
 ```
 
-### Construtor
+#### Construtor
 Um construtor é uma função com o mesmo nome da classe que é executado no momento em que a classe for instanciada, e.g.:
 ```cs
 class Person
@@ -154,7 +173,7 @@ class Person
 }
 ```
 
-### Métodos
+#### Métodos
 Métodos são funções específicas de uma classe, que resolvem determinado problema relacionado ao objetivo original da classe, e.g.:
 ```cs
 class Person
@@ -166,7 +185,7 @@ class Person
 }
 ```
 
-#### Sobrecarga de Método
+##### Sobrecarga de Método
 Pode-se nomear mais de um método com o mesmo nome, porém seu número de argumentos deve diferir, e.g.:
 
 ```cs
@@ -186,14 +205,17 @@ public void MeuMetodo(arg1, arg2)
 }
 ```
 
+### Herança
+Classes, porém não structs dão suporte ao conceito de herança. Uma classe que deriva de outra classe, chamada de classe base(ou pai), contém automaticamente todos os membros públicos, internos e protegidos da classe base, exceto seus construtores e finalizadores.   
+
+As classes podem ser declaradas como `abstract`, o que significa que um ou mais dos seus métodos não tem nenhuma implementação. Embora as classes abstratas não podem ser instanciadas diretamente, elas servem como classes bases para outras clases que fornecem a implementação ausente.   
+As classes também podem ser declaradas como `sealed` para impedir que outras classes herdem delas.
 ___
 
-# Anotação sobre Markdown
-Anotações direcionadas e objetivas sobre Markdown, indo de sua sintaxe à padrões de escrita.
+## Interface
+Classes, structs, e registros podem implementar várias interfaces, um exemplo simples, seria tratá-los como contratos, onde, caso um tipo a implemente, ele deve, portanto implementar todos os métodos definidos na interface.
+___
+## Tipos
 
-## Títulos
-Para se definir títulos, utiliza-se os caracteres de cerquilha `# Título`(Define um h1), seguido da frase ou palavra a ser usada como título.
-
-Segue-se o padrão do HTML, onde o número de cerquilhas define a hierarquia de títulos, onde `## Título`(Define um h2) é mais alto que `###### Título`(Define h6)  
-
-### Exemplo
+### Tipos genéricos
+Classes, structs e registros podem ser definidos com um ou mais parâmetros de tipo. 

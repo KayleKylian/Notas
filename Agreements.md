@@ -1,0 +1,2 @@
+<a href="https://iconscout.com/icons/microsoft-dot-net" target="_blank">Microsoft .NET</a> and <a href="https://iconscout.com/icons/csharp" target="_blank">C#</a> Icon by <a href="https://iconscout.com/contributors/icon-mafia">Icon Mafia</a>  
+<a href="https://iconscout.com/icons/markdown" target="_blank">Markdown</a> Icon by <a href="https://iconscout.com/contributors/jagathish" target="_blank">Jagathish Saravanan</a>
