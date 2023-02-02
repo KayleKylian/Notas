@@ -3,7 +3,36 @@ Anotações simples e diretas sobre C#, com foco em simplicidade e clareza.
 
 ## Descrição
 C# é uma linguagem orientada a objetos(OOP), imperativa, e estaticamente tipada, contando com o suporte da plataforma de desenvolvimento .NET, desenvolvida e mantida pela Microsoft, proprietária tanto da linguagem, quanto da plataforma.
+___
 
+## Escopo de um programa
+O escopo de um programa é tudo que ele tem, precisa, para ser executado, e no .NET, nós temos:
+- Importações: Referentes aos módulos necessários para o funcionamento do programa, por exemplo: um módulo para a escrita\leitura de arquivos JSON.
+- Namespace: São separações lógicas, internas do programa, diferente da separação física, que é em arquivos, pastas.
+- Classe
+- Método Principal (Método `Main`)
+As importações são feitas através de namespaces.
+___
+## Namespace
+Como citado, o namespace é a divisão lógica de um programa, diferentemente de uma divisão física, que se dá por meio de pastas, arquivos.
+Semelhante a pastas ou arquivos, que não se pode ter um com o mesmo nome, no namespace não é diferente, onde não se pode ter uma classe com o mesmo nome no mesmo namespace.
+Uma das diretrizes é que o namespace tenha o mesmo nome que sua pasta e que haja somente um namespace e classe por arquivo.
+É possível reutilizar namespaces e conter um namespace dentro de outro utilizando o `.`, e.g.
+```cs
+# Cadastro.cs
+namespace Cadastro
+{
+    # bla bla bla...
+}
+```
+```cs
+# Pessoa.cs
+namespace Cadastro.Pessoa
+{
+    # bla bla bla...
+}
+```
+___
 ## Variáveis
 **As variáveis são divididas em dois tipos, variáveis de referência, ou variáveis de valor**  
 
@@ -103,6 +132,7 @@ As classes são agrupamentos de características comuns e relacionadas, e serve 
 ```cs
 class Person {}
 ```
+Os nomes das classes seguem o nome dos arquivos em que estão.
 
 ### Encapsulamento
 Encapsulamento é o ato de esconder dados sensíveis do usuário, e evitar alterações indevidas.
